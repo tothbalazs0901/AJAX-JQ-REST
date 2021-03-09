@@ -1,8 +1,9 @@
 $(function(){    
     $("#beolvas").on("click", beolvas);
-    $("#kuld").on("click", adatKuld);   
-   
-    $(".torol").on("click", adatTorol);
+    $("#kuld").on("click", adatKuld);      
+    //$(".torol").on("click", adatTorol);
+    $("article").delegate(".torol", "click", adatTorol);
+    $("article").delegate(".szerkeszt", "click", adatModosit);
 });
 
 var telefonkonyvem = [];
@@ -65,14 +66,24 @@ function adatTorol(){
     });
 }
 
+function adatModosit(){
+    console.log("Modosít");
+    $(".szerkeszt").removeClass(".elrejt");
+    var index = $(this).attr("id");
+    console.log(index);
+        $("#id2").val();
+        $("#nev2").val();
+        $("#tel2").val();
+        $("#kep2").val();
+}
+
 function kiir(){
     $("article").empty();
     for (var i = 0; i < telefonkonyvem.length; i++) {
-        var nev = telefonkonyvem[i].nev;
-        var tel = telefonkonyvem[i].tel;
-        var kep = telefonkonyvem[i].kep ;
-        console.log(nev);
-        var elem = "<div><h2>" + nev + "</h2><p>" + tel + "</p><p>" + kep + "</p><button id='"+ID+"'class='torol'>Töröl</button></div>";
+        
+        let szemely = telefonkonyvem[i];
+        let elem = "<div><h2>" + szemely.nev + "</h2><p>" + szemely.tel + "</p><p>" + szemely.kep + "</p><button id='"+
+            szemely.ID+"'class='torol'>Töröl</button>\n\<button id=" + i + " class='szerkeszt'>Szerkeszt</button><hr></div>";
     
         $("article").append(elem);
     }

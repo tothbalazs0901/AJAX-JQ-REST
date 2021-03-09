@@ -15,6 +15,14 @@ class MySqlDB {
         $this->db_nev = "telefonkonyvem";
         $this->kapcsolat();
     }
+    
+//     public function __construct() {
+//        $this->db_szerver = "ABtanulo18szf1b";
+//        $this->db_felhnev = "c1_tanulo18szf1b";
+//        $this->db_jelszo = "_tanulo18szf1b";
+//        $this->db_nev = "telefonkonyvem";
+//        $this->kapcsolat();
+//    }
 
 
     public function kapcsolat() {
