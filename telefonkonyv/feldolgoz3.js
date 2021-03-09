@@ -3,9 +3,9 @@ $(function(){
     $("#kuld").on("click", adatKuld);      
     //$(".torol").on("click", adatTorol);
     $("article").delegate(".torol", "click", adatTorol);
-    $("article").delegate(".szerkeszt", "click", adatModosit);
+    $("article").delegate(".szerkeszt", "click", adatSzerkeszt);
     $("#megse").on("click", adatMegse);
-    //$("#modosit").on("click", adatModosit);
+    $("#modosit").on("click", adatModosit);
 });
 
 var telefonkonyvem = [];
@@ -68,7 +68,7 @@ function adatTorol(){
     });
 }
 
-function adatModosit(){
+function adatSzerkeszt(){
     console.log("Modosít");
     $(".szerkeszt").removeClass("elrejt");
     var index = $(this).attr("id");
@@ -83,6 +83,30 @@ function adatMegse(){
     $(".szerkesztes").addClass("elrejt");
 }
 
+function adatModosit(){
+    var editSzemely = {
+        ID: $("#id2").val(),
+        nev: $("#nev2").val(),
+        tel: $("#tel2").val(),
+        kep: $("#kep2").val()
+    };
+    
+    console.log("Módosít");
+    console.log(editSzemely);
+    $.ajax({
+       type: "PUT",
+       url: "modosit.php",
+       data: editSzemely,
+       success: function (){
+           
+            beolvas();
+       },
+        error: function(){
+            alert: "Hiba az adatok mentésekor!";
+        }
+       
+    });
+}
 
 
 function kiir(){
