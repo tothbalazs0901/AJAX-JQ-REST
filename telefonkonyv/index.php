@@ -37,7 +37,7 @@ and open the template in the editor.
                 </form>
             </section>
             <section>
-                <form class="urlap szerkeszt elrejt">
+                <form class="urlap szerkesztes elrejt">
                 <p for="id2">id:</p>
                 <input type="text" id="id2" name="id2">
                 <p for="nev2">név:</p>

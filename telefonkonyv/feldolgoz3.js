@@ -4,6 +4,8 @@ $(function(){
     //$(".torol").on("click", adatTorol);
     $("article").delegate(".torol", "click", adatTorol);
     $("article").delegate(".szerkeszt", "click", adatModosit);
+    $("#megse").on("click", adatMegse);
+    //$("#modosit").on("click", adatModosit);
 });
 
 var telefonkonyvem = [];
@@ -68,14 +70,20 @@ function adatTorol(){
 
 function adatModosit(){
     console.log("Modosít");
-    $(".szerkeszt").removeClass(".elrejt");
+    $(".szerkeszt").removeClass("elrejt");
     var index = $(this).attr("id");
     console.log(index);
-        $("#id2").val();
-        $("#nev2").val();
-        $("#tel2").val();
-        $("#kep2").val();
+        $("#id2").val(telefonkonyvem[index].ID);
+        $("#nev2").val(telefonkonyvem[index].nev);
+        $("#tel2").val(telefonkonyvem[index].tel);
+        $("#kep2").val(telefonkonyvem[index].kep);
 }
+
+function adatMegse(){
+    $(".szerkesztes").addClass("elrejt");
+}
+
+
 
 function kiir(){
     $("article").empty();
